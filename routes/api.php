@@ -14,4 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 Route::apiResource('monan','Api\mon_anController')->only(['index']);
 Route::apiResource('loaimon','Api\loai_monController')->only(['index']);
-Route::apiResource('ban','Api\banController')->only(['index']);
+Route::get('ban','Api\banController@index');
+Route::put('setupban','Api\banController@Moban');
+Route::apiResource('nhanvien','Api\nhanvienController')->only(['index']);
