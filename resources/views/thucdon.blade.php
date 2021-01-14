@@ -45,7 +45,7 @@
     @csrf
         <div class="form-group row">
             <div class="col-3">
-            <select class="custom-select" name="searchId" placeholder="Chọn loại">
+            <select class="custom-select" name="searchId">
             <option value="0">Tất cả</option>
                 @foreach($dsloai as $loai)
                 <option value="{{$loai['id']}}">{{$loai['TenLoai']}}</option>

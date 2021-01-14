@@ -33,11 +33,12 @@ Route::get('/tkmonan', function () {
     return view('tkmonan');
 });
   
-Route::post('/thucdon/timkiem',"SeachController@timkiem")->name('timkiem.timkiem');
+
 //thực đon
 Route::get('/thucdon', "mon_anController@Index")->name('mon_an.index');
 Route::post('thucdon', "mon_anController@store") ->name('mon_an.store');
 Route::get('/thucdon/create', "mon_anController@create")->name('mon_an.create');
+Route::post('/thucdon/searchthucdon',"SeachController@timkiem")->name('timkiem.timkiem');
 Route::get('/thucdon/edit/{id}',"mon_anController@edit")->name('mon_an.edit');
 Route::get('/thucdon/{id}/destroy',"mon_anController@destroy")->name('mon_an.destroy');
 Route::patch('/thucdon/{id}',"mon_anController@update") ->name('mon_an.update');
@@ -68,8 +69,8 @@ Route::get('/loai/show/{id}',"loaiController@show")->name('loai.show');
 //Nhân viên
 Route::get('/nhanvien',"nhanvienController@Index")->name('nhanvien.index');
 Route::post('nhanvien', "nhanvienController@store") ->name('nhanvien.store');
-Route::post('nhanvien',"SeachController@timnhanvien")->name('NV.timkiem');
 Route::get('/nhanvien/create', "nhanvienController@create")->name('nhanvien.create');
+Route::post('nhanvien/search',"SeachController@timnhanvien")->name('NV.timkiem');
 Route::get('/nhanvien/edit/{id}',"nhanvienController@edit")->name('nhanvien.edit');
 Route::get('/nhanvien/{id}/destroy',"nhanvienController@destroy")->name('nhanvien.destroy');
 Route::patch('/nhanvien/{id}',"nhanvienController@update")->name('nhanvien.update');

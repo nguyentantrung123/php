@@ -28,7 +28,7 @@ class SeachController extends Controller
     public function timnhanvien(Request $request){
         $key = $request->tennv;
         $dsnv = nhan_vien::where('TenNV','like','%'.$key.'%')->orwhere('NgaySinh','like','%'.$key.'%')
-        ->orwhere('GioiTinh','like','%'.$key.'%')->orwhere('TaiKhoan','like','%'.$key.'%')->get();
+        ->orwhere('GioiTinh','like','%'.$key.'%')->orwhere('TaiKhoan','like','%'.$key.'%')->paginate(1);
         return view('nhanvien',compact('dsnv'));
         
     }

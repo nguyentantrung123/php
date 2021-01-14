@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\nhan_vien;
 use Illuminate\Http\Request;
 use App\Traits\UploadTrait;
-use Illuminate\Database\Eloquent\Collection;
 
 class nhanvienController extends Controller
 {
@@ -16,7 +15,7 @@ class nhanvienController extends Controller
      */
     public function index()
     {
-        $dsnv = nhan_vien::where('TrangThai','=',1)->paginate(4);
+        $dsnv = nhan_vien::where('TrangThai','=',1)->paginate(1);
         return view("nhanvien",['dsnv' => $dsnv]);
     }
 

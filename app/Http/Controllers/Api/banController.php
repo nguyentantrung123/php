@@ -15,11 +15,9 @@ class banController extends Controller
      public function Moban(Request $re){
     	$pro=ban::find($re->id);
     	$pro->SoNguoi=$re->SoNguoi;
-    	$pro->TrangThai=2;
-    	if($pro->save())
-    	{
-    		return ['result'=>"success","msg"=>"moban"];
-    	}
-    	
+		$pro->TrangThai=2;
+		$pro->save();
+    	return ['result'=>"success","msg"=>"moban"];
+
     }
 }

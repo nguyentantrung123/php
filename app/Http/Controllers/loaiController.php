@@ -15,7 +15,7 @@ class loaiController extends Controller
      */
     public function index()
     {
-      $dsloai =  loai_mon::where('TrangThai','=',1)->paginate(4);
+      $dsloai =  loai_mon::where('TrangThai','=',1)->paginate(2);
       return view('loaimon',['dsloai' => $dsloai]);
     }
 

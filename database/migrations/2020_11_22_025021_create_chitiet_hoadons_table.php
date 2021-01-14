@@ -20,6 +20,7 @@ class CreateChitietHoadonsTable extends Migration
             $table->decimal('Gia',18,3);
             $table->unsignedBigInteger('MaBan');
             $table->unsignedBigInteger('MaMon');
+            $table->decimal('DonGia',18,3);
             $table->integer('TrangThai');
             $table->timestamps();
             $table->softDeletes();
