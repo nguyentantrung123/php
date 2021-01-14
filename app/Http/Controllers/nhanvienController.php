@@ -43,7 +43,7 @@ class nhanvienController extends Controller
         $nv->NgaySinh = $request->input('ngaysinh');
         $nv->TaiKhoan = $request->input('taikhoan');
         $mk = $request->input('matkhau');
-        $nv->MatKhau = bcrypt($mk);
+        $nv->MatKhau = md5($mk);
         $nv->TrangThai = 1;
         // request()->validate([
         //     'tennv' => 'required|max:50',
@@ -103,7 +103,9 @@ class nhanvienController extends Controller
         $nhanvien->NgaySinh = $request->input('ngay');
         $nhanvien->GioiTinh = $request->gioitinh;
         $nhanvien->TaiKhoan = $request->input('taikhoan');
-        $nhanvien->MatKhau = $request->input('matkhau');
+         $mk = $request->input('matkhau');
+        $nhanvien->MatKhau = md5($mk);
+       /* $nhanvien->MatKhau = $request->input('matkhau');*/
         $nhanvien->TrangThai = 1;        
         $nhanvien->save();
 

@@ -14,7 +14,7 @@ class banController extends Controller
      */
     public function index()
     {
-        $dsban = ban::where('TrangThai','=',1)->paginate(5);
+        $dsban = ban::where('TrangThai','!=',0)->paginate(5);
         return view('ban',['dsban' => $dsban]);
     }
 
