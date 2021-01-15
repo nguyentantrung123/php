@@ -36,4 +36,16 @@
 
 @section('content')
 <h1>Đây là trang chủ</h1>
+<h3>Danh sách bàn</h3>
+<div class="container-fluid">
+       <div class="row">
+       @foreach($dsban as $ban)
+            <div class="col-4">
+                <div class="item" data-value="{{$ban['TrangThai']}}">{{$ban['TenBan']}}</div>
+            </div>
+        @endforeach
+       </div>
+</div>
+@stop
+@section('jsloadban')
 @stop

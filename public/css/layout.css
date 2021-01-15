@@ -253,3 +253,10 @@ a.article:hover {
 .paginate-page{
     margin: auto;
 }
+
+.item{
+    margin-top: 10px;
+    border: 1px solid blue;
+    border-radius: 2px;
+    text-align: center;
+}

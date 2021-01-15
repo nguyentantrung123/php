@@ -11,27 +11,20 @@
 |
 */
 
+use App\Http\Controllers\SeachController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'LoginController@getLogin');
 Route::post('/', 'LoginController@postLogin')->name('login');
 Route::get('logout','LoginController@getLogout');
 
-Route::get('/home', function () {
-    return view('home');
-});
-
-Route::get('/nhanvien', function () {   
-    return view('nhanvien');
-});
+Route::get('/home','SeachController@load_dsban')->name('home');
 
 Route::get('/doanhthu', function () {
     return view('doanhthu');
 });
 
-Route::get('/tkmonan', function () {
-    return view('tkmonan');
-});
+Route::get('/tkmonan','thongkeController@thongkemon')->name('thongkemon');
   
 
 //thực đon
@@ -49,6 +42,7 @@ Route::get('/thucdon/show/{id}', "mon_anController@show")->name('mon_an.show');
 Route::get('/ban', "banController@Index")->name('ban.index');
 Route::post('ban', "banController@store") ->name('ban.store');
 Route::get('/ban/create',"banController@create")->name('ban.create');
+Route::post('/ban/timkiem','SeachController@timban')->name('ban.search');
 Route::get('/ban/edit/{id}',"banController@edit")->name('ban.edit');
 Route::get('/ban/{id}/destroy',"banController@destroy")->name('ban.destroy');
 Route::patch('/ban/{id}',"banController@update") ->name('ban.update');
@@ -59,6 +53,7 @@ Route::get('/ban/show/{id}',"banController@show")->name('ban.show');
 Route::get('/loai', "loaiController@Index")->name('loai.index');
 Route::post('loai', "loaiController@store") ->name('loai.store');
 Route::get('/loai/create',"loaiController@create")->name('loai.create');
+Route::post('/loai/timkiem','SeachController@timloai')->name('loai.search');
 Route::get('/loai/edit/{id}',"loaiController@edit")->name('loai.edit');
 Route::get('/loai/{id}/destroy',"loaiController@destroy")->name('loai.destroy');
 Route::patch('/loai/{id}',"loaiController@update") ->name('loai.update');

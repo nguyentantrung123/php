@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\ban;
 use App\mon_an;
 use App\loai_mon;
 use App\nhan_vien;
@@ -12,13 +14,13 @@ class SeachController extends Controller
         $ten = $request->tukhoa;
         $loai = $request->searchId;
         if($loai == 0){
-            $ds = mon_an::where('TenMon','like','%'.$ten.'%')->get();      
+            $ds = mon_an::where('TenMon','like','%'.$ten.'%')->paginate(4);      
         }
         if($loai != 0){
             $ds = mon_an::where([
                 ['TenMon', 'like', '%'.$ten.'%'],
                 ['Loai', '=', $loai],
-                ])->get();
+                ])->paginate(4);
         }
        
         $dsloai = loai_mon::all();
@@ -31,5 +33,22 @@ class SeachController extends Controller
         ->orwhere('GioiTinh','like','%'.$key.'%')->orwhere('TaiKhoan','like','%'.$key.'%')->paginate(1);
         return view('nhanvien',compact('dsnv'));
         
+    }
+
+    public function timban(Request $request){
+        $key = $request->name_tb;
+        $dsban = ban::where('TenBan','like','%'.$key.'%')->paginate(4);
+        return view('ban',compact('dsban'));
+    }
+
+    public function timloai(Request $request){
+        $key = $request->name_type;
+        $dsloai = loai_mon::where('TenLoai','like','%'.$key.'%')->paginate(2);
+        return view('loaimon',compact('dsloai'));
+    }
+
+    public function load_dsban(){
+        $dsban = ban::all();
+        return view('home',compact('dsban'));
     }
 }

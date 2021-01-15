@@ -39,7 +39,7 @@
 
 
 @section('content')
-<p class="Inserttable"><a href="{{route('mon_an.create')}}" class="Insert">Thêm mới</a></p>
+<p class="Inserttable"><a href="{{route('mon_an.create')}}" class="Insert btn btn-primary">Thêm mới</a></p>
 <div class="line"></div>
 <form  action="{{route('timkiem.timkiem')}}" method="post">
     @csrf
@@ -90,8 +90,8 @@
             <td>{{$mon_an['Loai']}}</td>
             <td>{{$mon_an['TrangThai']}}</td>
             <td>
-                <button class="btn btn-success"><a href="{{route('mon_an.edit',$mon_an['id'])}}">Edit</a></button>
-                <button class="btn btn-info"><a href="{{route('mon_an.show',$mon_an['id'])}}"> Detail</a></button>
+                <button class="btn btn-success"><a href="{{route('mon_an.edit',$mon_an['id'])}}">Sửa</a></button>
+                <button class="btn btn-info"><a href="{{route('mon_an.show',$mon_an['id'])}}"> Chi tiết</a></button>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="{{ $mon_an['id']}}">Xóa</button>
             </td>
         </tr>

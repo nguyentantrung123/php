@@ -38,26 +38,18 @@
 
 
 @section('content')
-<p class="Inserttable"><a href="{{route('ban.create')}}" class="Insert">Thêm mới</a></p>
+<p class="Inserttable"><a href="{{route('ban.create')}}" class="Insert btn btn-primary">Thêm mới</a></p>
 <div class="line"></div>
-<form >
+<form   action="{{route('ban.search')}}" method="post">
+@csrf
     <p>
         <div class="form-group row">
-            <div class="col-3">
-            <select class="custom-select" name="searchId" placeholder="Chọn loại">
-                <option value="0">Chọn loại cần tìm...</option>
-                <option value="0">Tất cả</option>
-                <option value="0">Loại 1</option>
-                <option value="0">Loại 2</option>
-            </select>
-           
-            </div>
             <div class="col-4">
-                <input type="email" class="form-control"   placeholder="Nhập từ khoá">
+                <input type="text" id="name_tb" name="name_tb" class="form-control"  placeholder="Nhập từ khoá...">
           
             </div>
             <div class="col-3">
-                <button type="button"  class="btn btn-info">
+                <button type="submit"  class="btn btn-info">
                      <i class="fas fa-search"></i>
                         <span>Tìm kiếm</span>
                     </button>
@@ -92,9 +84,9 @@
             <td>{{$ban['SoNguoi']}}</td>
             <td>{{$ban['TrangThai']}}</td>
             <td>
-                <button class="btn btn-success"><a href="{{route('ban.edit',$ban['id'])}}">Edit</a></button>
-                <button class="btn btn-info"><a href="{{route('ban.show',$ban['id'])}}"> Detail</a></button>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"  data-whatever="{{ $ban['id']}}">Delete</button>
+                <button class="btn btn-success"><a href="{{route('ban.edit',$ban['id'])}}">Sửa</a></button>
+                <button class="btn btn-info"><a href="{{route('ban.show',$ban['id'])}}">Chi tiết</a></button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"  data-whatever="{{ $ban['id']}}">Xóa</button>
             </td>
         </tr>
         @endforeach

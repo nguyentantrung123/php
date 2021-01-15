@@ -39,9 +39,29 @@
 
 
 @section('content')
-<p class="Inserttable"><a href="{{route('loai.create')}}" class="Insert">Thêm mới</a></p>
+<p class="Inserttable"><a href="{{route('loai.create')}}" class="Insert btn btn-primary">Thêm mới</a></p>
 <div class="line"></div>
-
+<form   action="{{route('loai.search')}}" method="post">
+@csrf
+    <p>
+        <div class="form-group row">
+            <div class="col-4">
+                <input type="text" id="name_type" name="name_type" class="form-control"  placeholder="Nhập từ khoá...">
+          
+            </div>
+            <div class="col-3">
+                <button type="submit"  class="btn btn-info">
+                     <i class="fas fa-search"></i>
+                        <span>Tìm kiếm</span>
+                    </button>
+            </div>
+           
+           
+        </div>
+        
+    </p>
+  
+</form>
 <!-- Thêm nội dung mới tại đây -->
 <table class="table table-striped">
     <thead>
@@ -59,8 +79,8 @@
             <td>{{$loai['TenLoai']}}</td>
             <td hidden="true">{{$loai['TrangThai']}}</td>
             <td>
-                <button class="btn btn-success"><a href="{{route('loai.edit',$loai['id'])}}">Edit</a></button>
-                <button class="btn btn-info"><a href="{{route('loai.show',$loai['id'])}}"> Detail</a></button>
+                <button class="btn btn-success"><a href="{{route('loai.edit',$loai['id'])}}">Sửa</a></button>
+                <button class="btn btn-info"><a href="{{route('loai.show',$loai['id'])}}"> Chi tiết</a></button>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
              data-whatever="{{ $loai['id']}}">Xóa</button>
             </td> 

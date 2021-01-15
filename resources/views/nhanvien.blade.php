@@ -37,7 +37,7 @@
 
 
 @section('content')
-<p class="Inserttable"><a href="{{route('nhanvien.create')}}" class="Insert">Thêm mới</a></p>
+<p class="Inserttable"><a href="{{route('nhanvien.create')}}" class="Insert btn btn-primary">Thêm mới</a></p>
 <div class="line"></div>
 
 <form action="{{route('NV.timkiem')}}" method="post">
@@ -88,8 +88,8 @@
             @endif
             </td>
             <td>
-                <button class="btn btn-success"><a href="{{route('nhanvien.edit',$nv['id'])}}">Edit</a></button>
-                <button class="btn btn-info"><a href="{{route('nhanvien.show',$nv['id'])}}"> Detail</a></button>
+                <button class="btn btn-success"><a href="{{route('nhanvien.edit',$nv['id'])}}">Sửa</a></button>
+                <button class="btn btn-info"><a href="{{route('nhanvien.show',$nv['id'])}}">Chi tiết</a></button>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-value="{{$nv['TrangThai']}}" data-whatever="{{ $nv['id']}}">Xóa</button>
             </td>
         </tr>

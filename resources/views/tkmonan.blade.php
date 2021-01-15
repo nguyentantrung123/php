@@ -35,4 +35,32 @@
 
 @section('content')
 <h1>Đây là trang thống kê món ăn</h1>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th hidden="true">Mã món</th>
+        <th>Tên món</th>
+        <th>Tên bàn</th>
+        <th>Giá</th>
+        <th>Số lượng</th>
+        <th>Thời gian</th>
+        <th>Trạng Thái</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+        @foreach($dstk as $item)
+        <tr>
+            <td hidden="true">{{$item['id']}}</td>
+            <td>{{$item['TenMon']}}</td>
+            <td>{{$item['TenBan']}}</td>
+            <td>{{$item['Gia']}}</td>
+            <td>{{$item['SoLuong']}}</td>
+            <td>{{$item['ThoiGian']}}</td>
+            <td>{{$item['TrangThai']}}</td>
+          
+        </tr>
+        @endforeach
+    </tbody>
+  </table>
 @stop

@@ -29,7 +29,7 @@ class mon_anController extends Controller
      */
     public function create()
     {
-        $dsloai = loai_mon::all();
+        $dsloai = loai_mon::where('TrangThai','=',1)->get();
         return view("createthucdon",compact("dsloai"));
     }
 
@@ -100,7 +100,7 @@ class mon_anController extends Controller
     public function edit($id)
     {
         $sp = mon_an::find($id);
-        $dsloai = loai_mon::all();
+        $dsloai = loai_mon::where('TrangThai','=',1)->get();
     
         return view("editthucdon",compact('sp'),compact('dsloai'));
     }
@@ -127,9 +127,6 @@ class mon_anController extends Controller
         $new_image = rand().'.'.$file->getClientOriginalExtension();
         $file->move(public_path("images"),$new_image); 
         $mon->HinhAnh = $new_image;
-        
-        
-        
         $mon->save();
 
         $ds = mon_an::all();
