@@ -20,18 +20,7 @@ class KhoaNgoai extends Migration
         });
         
         //ds
-        Schema::table('ds_goimons', function (Blueprint $table) {
-            
-        
-            $table->foreign('MaBan')->references('id')->on('bans');
-        });
-
-        Schema::table('ds_goimons', function (Blueprint $table) {
-            
-        
-            $table->foreign('MaMon')->references('id')->on('mon_ans');
-        });
-
+       
         //hoa don
         Schema::table('hoa_dons', function (Blueprint $table) {
            
@@ -50,7 +39,7 @@ class KhoaNgoai extends Migration
         Schema::table('chitiet_hoadons', function (Blueprint $table) {
            
         
-            $table->foreign('MaBan')->references('id')->on('bans');
+            $table->foreign('MaHD')->references('id')->on('hoa_dons');
         });
 
         Schema::table('chitiet_hoadons', function (Blueprint $table) {
